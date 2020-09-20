@@ -2,7 +2,7 @@
  * Custom matcher to test required field for mongoose documents
  */
 
-import { MongooseDocument } from 'mongoose';
+import type { MongooseDocument } from 'mongoose';
 
 export default {
 	toHaveRequired(

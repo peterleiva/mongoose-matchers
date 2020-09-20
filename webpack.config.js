@@ -14,6 +14,9 @@ module.exports = {
 
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js'],
+		alias: {
+			lib: path.join(__dirname, 'lib'),
+		},
 	},
 
 	optimization: {

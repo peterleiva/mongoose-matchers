@@ -10,19 +10,21 @@ interface CustomMatcherMessage {
 	(): string;
 }
 
+type MatcherMessageOptions = MatcherHintOptions & { expand: boolean };
+
 interface MatcherMessage {
 	(
 		received: unknown,
 		expected: unknown,
-		options: MatcherHintOptions & { expand: boolean }
+		options: MatcherMessageOptions
 	): CustomMatcherMessage;
 }
 
 const message: MatcherMessage = (
 	received: unknown,
 	expected: unknown,
-	options
-) => (): string => {
+	options: MatcherMessageOptions
+): CustomMatcherMessage => (): string => {
 	const expectedString = printExpected(expected);
 	const receivedString = printReceived(received);
 

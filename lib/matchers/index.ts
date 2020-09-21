@@ -1,2 +1,2 @@
 export * from './toHaveRequired';
-export * from './toBeTrimmer.ts';
+export * from './toBeTrimmed';

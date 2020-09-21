@@ -1,12 +1,8 @@
-import expectExport from 'expect';
 import * as matchers from './matchers';
+import expect from 'expect';
 
-const jestExpect = expectExport;
-
-if (jestExpect !== undefined) {
-	console.log('matchers', matchers);
-
-	jestExpect.extend(matchers);
+if (expect !== undefined) {
+	expect.extend(matchers);
 } else {
 	console.error("Unable to find Jest's global expect.");
 }

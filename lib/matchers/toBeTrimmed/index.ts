@@ -18,8 +18,10 @@ export default {
 			expand: this.expand,
 		};
 
+		received.set(attribute, '\t\n value \n\t');
+
 		return {
-			message: message(received.get('attribute'), attribute, options),
+			message: message(received.get(attribute), attribute, options),
 			pass: predicate(received, attribute),
 		};
 	},

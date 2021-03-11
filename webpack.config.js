@@ -1,38 +1,43 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const nodeExternals = require('webpack-node-externals');
+const { resolve } = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const nodeExternals = require("webpack-node-externals");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
+/**
+ * @type {import('webpack').Configuration}
+ */
 module.exports = {
-	entry: './lib/index.ts',
-	target: 'node',
-	module: {
-		rules: [
-			{
-				test: /\.ts/,
-				use: ['ts-loader', 'eslint-loader'],
-			},
-		],
-	},
+  entry: "./lib/index.ts",
+  target: "node",
+  context: resolve(__dirname, "lib"),
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: ["ts-loader"],
+        options: {
+          transpileOnly: true,
+        },
+      },
+    ],
+  },
 
-	externals: [nodeExternals()],
+  externals: [nodeExternals()],
+  plugins: [
+    new ForkTsCheckerWebpackPlugin({
+      eslint: {
+        files: "./lib/**/*.{ts}",
+      },
+    }),
+    new CleanWebpackPlugin(),
+  ],
 
-	plugins: [new CleanWebpackPlugin()],
+  resolve: {
+    extensions: [".ts", ".js"],
+  },
 
-	resolve: {
-		extensions: ['.tsx', '.ts', '.js'],
-		alias: {
-			lib: path.join(__dirname, 'lib'),
-			utils: path.join(__dirname, 'lib', 'utils'),
-		},
-	},
-
-	optimization: {
-		splitChunks: { chunks: 'all' },
-	},
-
-	output: {
-		filename: '[name].bundle.js',
-		path: path.join(__dirname, 'dist'),
-	},
+  output: {
+    filename: "[name].bundle.js",
+    path: resolve(__dirname, "dist"),
+  },
 };

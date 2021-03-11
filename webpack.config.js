@@ -1,4 +1,4 @@
-const { resolve } = require("path");
+const { resolve, join } = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const nodeExternals = require("webpack-node-externals");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
@@ -10,11 +10,18 @@ module.exports = {
   entry: "./lib/index.ts",
   target: "node",
   context: resolve(__dirname, "lib"),
+  resolve: {
+    extensions: [".ts", ".js"],
+  },
+
+  mode: "production",
+
   module: {
     rules: [
       {
         test: /\.ts$/,
-        use: ["ts-loader"],
+        loader: "ts-loader",
+        exclude: /node_modules/,
         options: {
           transpileOnly: true,
         },
@@ -25,16 +32,14 @@ module.exports = {
   externals: [nodeExternals()],
   plugins: [
     new ForkTsCheckerWebpackPlugin({
+      typescript: { configFile: join(__dirname, "tsconfig.json") },
       eslint: {
-        files: "./lib/**/*.{ts}",
+        files: join(__dirname, "lib/**/*.ts"),
+        options: { ignorePattern: "lib/**/__tests__" },
       },
     }),
     new CleanWebpackPlugin(),
   ],
-
-  resolve: {
-    extensions: [".ts", ".js"],
-  },
 
   output: {
     filename: "[name].bundle.js",

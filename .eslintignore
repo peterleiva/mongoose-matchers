@@ -1,0 +1,9 @@
+# Dependencies
+node_modules
+
+# Doc files
+*.md
+
+# configurations files
+jest.config.js
+webpack.config.js

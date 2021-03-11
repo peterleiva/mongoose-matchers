@@ -1,10 +1,10 @@
-import './index';
-
+import ".";
 declare global {
-	namespace jest {
-		interface Matchers<R> {
-			toHaveRequired(attribute: string): R;
-			toBeTrimmed(attribute: string): R;
-		}
-	}
+  namespace jest {
+    interface Matchers<R> {
+      toHaveRequired(paths: string[]): R;
+      toHaveRequired(...paths: string[]): R;
+      toBeTrimmed(attribute: string): R;
+    }
+  }
 }

@@ -1,13 +1,12 @@
 {
-	"extends": "@tsconfig/node12/tsconfig.json",
-	"compilerOptions": {
-		"noImplicitAny": true,
-		"baseUrl": "lib",
-		"paths": {
-			"utils/*": ["utils/*"]
-		}
-	},
+  "extends": "./tsconfig.base.json",
 
-	"include": ["src/**/*.spec.ts"],
-	"exclude": ["node_modules", "dist"]
+  "compilerOptions": {
+    "noEmit": true,
+    "paths": {
+      "database/*": ["utils/database/*"]
+    }
+  },
+
+  "include": ["./lib/**/*.ts"]
 }

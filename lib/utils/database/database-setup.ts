@@ -44,6 +44,7 @@ const credentials: string =
  */
 const DATABASE_URL: string =
   process.env.DATABASE_URL ||
+  process.env.MONGO_URL ||
   `mongodb://${credentials}${options.host}:${options.port}/` +
     `${options.database}`;
 

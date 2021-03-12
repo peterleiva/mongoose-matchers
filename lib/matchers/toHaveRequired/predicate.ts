@@ -15,7 +15,7 @@ type Fails = {
 export default async (
   model: Model<Document>,
   ...paths: string[]
-): Promise<{ pass: boolean; fails: Fails }> => {
+): Promise<boolean> => {
   // It gets all required model paths if none is provided
   const normalizedPaths =
     paths.length === 0 ? model.schema.requiredPaths() : paths.flat();
@@ -23,9 +23,10 @@ export default async (
   let pass: boolean;
   const fails: Fails = {};
 
-  const doc: Doc = normalizedPaths
-    .flat()
-    .reduce((attrs, path) => Object.assign(attrs, { [path]: undefined }), {});
+  const doc: Doc = normalizedPaths.reduce(
+    (attrs, path) => Object.assign(attrs, { [path]: undefined }),
+    {}
+  );
 
   pass = true;
 
@@ -44,5 +45,5 @@ export default async (
     }
   }
 
-  return { pass, fails };
+  return pass;
 };

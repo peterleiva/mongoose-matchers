@@ -6,7 +6,10 @@
     "outDir": "dist",
     "rootDir": "lib",
     "noImplicitAny": true,
+    "declaration": true,
     "baseUrl": "lib",
-    "declaration": true
+    "paths": {
+      "database/*": ["utils/database/*"]
+    }
   }
 }

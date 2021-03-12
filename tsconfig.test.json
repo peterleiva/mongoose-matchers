@@ -2,10 +2,7 @@
   "extends": "./tsconfig.base.json",
 
   "compilerOptions": {
-    "noEmit": true,
-    "paths": {
-      "database/*": ["utils/database/*"]
-    }
+    "noEmit": true
   },
 
   "include": ["./lib/**/*.ts"]

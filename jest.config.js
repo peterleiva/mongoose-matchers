@@ -1,20 +1,21 @@
 const { resolve } = require("path");
-const { jsWithTs: tsPreset } = require("ts-jest/presets");
+const { defaults: tsPreset } = require("ts-jest/presets");
 
+/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
+  testEnvironment: "node",
   preset: "@shelf/jest-mongodb",
   transform: {
     ...tsPreset.transform,
   },
-  testEnvironment: "node",
   globals: {
     "ts-jest": {
-      tsconfig: resolve(__dirname, "tsconfig.test.json"),
+      tsconfig: resolve(__dirname, "tsconfig.spec.json"),
+      babelConfig: true,
     },
   },
 
   rootDir: resolve(__dirname, "lib"),
-  moduleDirectories: ["node_modules", "lib"],
   moduleNameMapper: {
     "^database/(.*)$": "<rootDir>/utils/database/$1",
   },

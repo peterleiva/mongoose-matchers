@@ -1,5 +1,5 @@
-const { resolve } = require("path");
-const { defaults: tsPreset } = require("ts-jest/presets");
+const { resolve } = require("path")
+const { defaults: tsPreset } = require("ts-jest/presets")
 
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
@@ -19,4 +19,4 @@ module.exports = {
   moduleNameMapper: {
     "^database/(.*)$": "<rootDir>/utils/database/$1",
   },
-};
+}

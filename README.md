@@ -15,22 +15,22 @@ npm install --save-dev mongoose-matchers
 Given a mongoose model
 
 ```javascript
-import { Schema } from 'mongoose';
+import { Schema } from "mongoose"
 
 const schema = new Schema({
   name: {
     type: String,
     required: true,
     trim: true,
-   }
-});
+  },
+})
 ```
 
 You can test schema options:
 
 ```javascript
-expect(doc).toHaveRequired('name');
-expect(doc).toBeTrimmed('name', ' some raw value  ');
+expect(doc).toHaveRequired("name")
+expect(doc).toBeTrimmed("name", " some raw value  ")
 ```
 
 ## Matchers

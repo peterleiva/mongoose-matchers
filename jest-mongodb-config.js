@@ -6,4 +6,4 @@ module.exports = {
       dbName: "mongoose-matchers",
     },
   },
-};
+}

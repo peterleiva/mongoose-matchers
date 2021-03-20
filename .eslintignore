@@ -4,6 +4,9 @@ node_modules
 # Doc files
 *.md
 
+# build
+dist
+
 # configurations files
 jest.config.js
 webpack.config.js

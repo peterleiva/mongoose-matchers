@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "description": "Some custom jest matchers for testing mongoose validations",
   "main": "dist/index.bundle.js",
-  "engines": {
-    "node": ">=12.18.4"
-  },
   "directories": {
     "lib": "lib"
   },

@@ -10,7 +10,14 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "jest --watch"
+    "build": "tsc --build",
+    "lint": "eslint --ignore-path .gitignore .",
+    "check-types": "tsc -p tsconfig.lib.json --noEmit ",
+    "prettier": "prettier --ignore-path .gitignore \"*.{json,js,ts,md}\"",
+    "format": "npm run prettier -- --write",
+    "check-format": "npm run prettier -- --list-different",
+    "validate": "concurrently --raw -n ,lint \"npm run check-*\" \"npm run lint\"",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -42,6 +49,7 @@
     "@typescript-eslint/parser": "^4.1.1",
     "casual": "^1.6.2",
     "clean-webpack-plugin": "^3.0.0",
+    "concurrently": "^6.0.0",
     "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
     "fork-ts-checker-webpack-plugin": "^6.1.1",

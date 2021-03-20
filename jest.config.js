@@ -11,11 +11,11 @@ module.exports = {
   globals: {
     "ts-jest": {
       tsconfig: resolve(__dirname, "tsconfig.spec.json"),
-      babelConfig: true,
     },
   },
 
   rootDir: resolve(__dirname, "lib"),
+  moduleDirectories: ["node_modules", "lib"],
   moduleNameMapper: {
     "^database/(.*)$": "<rootDir>/utils/database/$1",
   },

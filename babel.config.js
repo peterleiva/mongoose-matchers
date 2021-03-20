@@ -1,3 +1,5 @@
+const { resolve, join } = require("path")
+
 /**
  * @type {import('@babel/core').ConfigFunction}
  **/
@@ -7,9 +9,27 @@ module.exports = api => {
   const presets = [
     [
       "@babel/preset-env",
-      { targets: { node: "current" }, useBuiltIns: "usage" },
+      {
+        targets: { node: "current" },
+        useBuiltIns: "usage",
+        corejs: "3.9",
+      },
+    ],
+    "@babel/preset-typescript",
+  ]
+
+  const plugins = [
+    [
+      require.resolve("babel-plugin-module-resolver"),
+
+      {
+        root: ["./dist"],
+        alias: {
+          database: "./dist/utils/database",
+        },
+      },
     ],
   ]
 
-  return { presets }
+  return { presets, plugins }
 }

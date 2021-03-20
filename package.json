@@ -36,7 +36,9 @@
   },
   "homepage": "https://github.com/peterleiva/mongoose-matchers#readme",
   "dependencies": {
-    "expect": "^26.4.2"
+    "core-js": "^3.9.1",
+    "expect": "^26.4.2",
+    "regenerator-runtime": "^0.13.7"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",

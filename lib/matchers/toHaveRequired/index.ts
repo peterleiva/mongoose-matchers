@@ -2,19 +2,19 @@
  * Custom matcher to test required field for mongoose documents
  */
 
-import type { Document, Model } from "mongoose";
-import message from "utils/message";
-import predicate from "./predicate";
+import type { Document, Model } from "mongoose"
+import message from "utils/message"
+import predicate from "./predicate"
 
 async function toHaveRequired(
   received: Model<Document>,
   paths: string[]
-): Promise<jest.CustomMatcherResult>;
+): Promise<jest.CustomMatcherResult>
 
 async function toHaveRequired(
   received: Model<Document>,
   ...paths: string[]
-): Promise<jest.CustomMatcherResult>;
+): Promise<jest.CustomMatcherResult>
 
 async function toHaveRequired(
   this: jest.MatcherContext,
@@ -25,15 +25,15 @@ async function toHaveRequired(
     isNot: this.isNot,
     promise: this.promise,
     expand: this.expand,
-  };
+  }
 
-  const { pass, fails } = await predicate(received, ...paths);
+  const pass = await predicate(received, ...paths)
 
-  console.log({ pass, fails });
+  console.log({ pass })
   return {
     pass,
     message: message(paths, received.schema.requiredPaths(), options),
-  };
+  }
 }
 
-export default { toHaveRequired };
+export default { toHaveRequired }

@@ -1,5 +1,10 @@
 {
   "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "isolatedModules": true
+  },
   "include": ["./lib/**/*.ts"],
   "exclude": ["./lib/**/__tests__/**/*.spec.ts"]
 }

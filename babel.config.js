@@ -1,7 +1,15 @@
+/**
+ * @type {import('@babel/core').ConfigFunction}
+ **/
 module.exports = api => {
-  api.cache(() => process.env.NODE_ENV === "production")
+  api.cache.using(() => process.env.NODE_ENV === "production")
 
-  const presets = [["@babel/preset-env", { targets: { node: "current" } }]]
+  const presets = [
+    [
+      "@babel/preset-env",
+      { targets: { node: "current" }, useBuiltIns: "usage" },
+    ],
+  ]
 
   return { presets }
 }

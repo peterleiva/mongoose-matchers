@@ -6,7 +6,3 @@ node_modules
 
 # build
 dist
-
-# configurations files
-jest.config.js
-babel.config.js

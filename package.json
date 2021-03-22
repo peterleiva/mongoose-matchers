@@ -16,6 +16,7 @@
     "check-format": "npm run prettier -- --list-different",
     "validate": "concurrently --raw -n ,lint \"npm run check-*\" \"npm run lint\"",
     "test": "jest",
+    "test:debug": "./scripts/debug.sh",
     "prepare": "husky install"
   },
   "repository": {

@@ -1,5 +1,4 @@
 {
-  /* Visit https://aka.ms/tsconfig.json to read more about this file */
   "extends": "@tsconfig/node14/tsconfig.json",
 
   "compilerOptions": {

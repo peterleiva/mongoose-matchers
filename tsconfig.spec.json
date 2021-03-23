@@ -2,8 +2,14 @@
   "extends": "./tsconfig.base.json",
 
   "compilerOptions": {
-    "noEmit": true
+    "noEmit": true,
+    "rootDir": "./",
+    "baseUrl": "./",
+    "paths": {
+      "*": ["./test/*", "./lib/*"],
+      "database/*": ["./lib/utils/database/*"]
+    }
   },
 
-  "include": ["./lib/**/*.ts"]
+  "include": ["./lib/**/*.ts", "./test/**/*.ts"]
 }

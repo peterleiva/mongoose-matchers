@@ -1,22 +1,50 @@
 {
+  "ignorePatterns": ["node_modules", "dist", "package-lock.json"],
+  "extends": ["prettier", "eslint:recommended"],
   "env": {
     "node": true
   },
-  "ignorePatterns": ["node_modules", "dist", "package-lock.json"],
-  "extends": [
-    "plugin:node/recommended",
-    "plugin:json/recommended",
-    "plugin:markdown/recommended"
-  ],
-  "parserOptions": {
-    "sourceType": "script",
-    "ecmaFeatures": {
-      "impliedStrict": true
-    }
-  },
+
   "overrides": [
     {
-      "files": "*.{js,json,md}"
+      "files": "*.{js,json,md}",
+      "extends": [
+        "plugin:node/recommended",
+        "plugin:json/recommended",
+        "plugin:markdown/recommended"
+      ],
+      "parserOptions": {
+        "sourceType": "script",
+        "ecmaFeatures": {
+          "impliedStrict": true
+        }
+      }
+    },
+
+    {
+      "files": ["**/*.ts"],
+      "env": {
+        "es2021": true
+      },
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "sourceType": "module"
+      },
+      "plugins": ["@typescript-eslint"]
+    },
+    {
+      "files": ["**/__tests__/**/*.ts", "./test/**/*.ts"],
+      "env": {
+        "jest": true
+      },
+      "settings": {
+        "import/resolver": {
+          "jest": {
+            "jestConfigFile": "./jest.config.js"
+          }
+        }
+      }
     }
   ]
 }

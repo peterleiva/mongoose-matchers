@@ -1,5 +1,3 @@
-const { resolve, join } = require("path")
-
 /**
  * @type {import('@babel/core').ConfigFunction}
  **/

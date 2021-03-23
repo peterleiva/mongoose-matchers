@@ -8,8 +8,6 @@ if (!shell.exec("command -v node").to("/dev/null").stdout) {
   shell.exit(1)
 }
 
-const nodeModules = resolve(__dirname, "../node_modules")
+const jestBin = resolve(__dirname, "../node_modules", ".bin", "jest")
 
-shell.exec(
-  `node --inspect-brk ${nodeModules}/.bin/jest --watch --no-cache --runInBand`
-)
+shell.exec(`node --inspect-brk ${jestBin} --watch --no-cache --runInBand`)

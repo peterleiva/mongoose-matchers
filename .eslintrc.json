@@ -1,0 +1,22 @@
+{
+  "env": {
+    "node": true
+  },
+  "ignorePatterns": ["node_modules", "dist", "package-lock.json"],
+  "extends": [
+    "plugin:node/recommended",
+    "plugin:json/recommended",
+    "plugin:markdown/recommended"
+  ],
+  "parserOptions": {
+    "sourceType": "script",
+    "ecmaFeatures": {
+      "impliedStrict": true
+    }
+  },
+  "overrides": [
+    {
+      "files": "*.{js,json,md}"
+    }
+  ]
+}

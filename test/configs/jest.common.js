@@ -5,8 +5,8 @@ module.exports = {
   rootDir: resolve(__dirname, "..", ".."),
   moduleDirectories: [
     "node_modules",
-    "<rootDir>/lib",
     resolve(__dirname, ".."),
+    resolve(__dirname, "..", "..", "lib"),
   ],
 
   moduleNameMapper: {

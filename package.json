@@ -19,7 +19,7 @@
     "check-format": "npm run prettier -- --list-different",
     "validate": "concurrently --raw -n ,lint \"npm run check-*\" \"npm run lint\"",
     "lint:format": "echo not implemented",
-    "test": "jest --watch --maxWorkers=1",
+    "test": "jest --watchAll --coverage --maxWorkers=1",
     "test:debug": "./scripts/debug-test.js",
     "prepare": "husky install"
   },

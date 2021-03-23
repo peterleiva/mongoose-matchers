@@ -1,2 +1,2 @@
-export * from './toHaveRequired';
-export * from './toBeTrimmed';
+export * from "./toHaveRequired"
+export * from "./toBeTrimmed"

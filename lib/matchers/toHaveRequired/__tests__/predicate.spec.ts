@@ -1,7 +1,7 @@
 import { model, Schema, SchemaDefinitionProperty } from "mongoose"
 import casual from "casual"
 import predicate from "../predicate"
-import database from "database/database-test-env"
+import database from "database-test-env"
 
 function setupModel(def: SchemaDefinitionProperty = {}) {
   const schema = new Schema(def)
@@ -23,11 +23,11 @@ describe("toHaveRequired predicate", () => {
     description: String,
   }
 
-  const allOptionalDef = {
-    title: String,
-    name: String,
-    description: String,
-  }
+  // const allOptionalDef = {
+  //   title: String,
+  //   name: String,
+  //   description: String,
+  // }
 
   database()
 
